@@ -1,4 +1,5 @@
 import { HeadingBlockContent } from "../nodes/BlockContent/HeadingBlockContent/HeadingBlockContent";
+import { ImageBlockContent } from "../nodes/BlockContent/ImageBlockContent/ImageBlockContent";
 import { BulletListItemBlockContent } from "../nodes/BlockContent/ListItemBlockContent/BulletListItemBlockContent/BulletListItemBlockContent";
 import { NumberedListItemBlockContent } from "../nodes/BlockContent/ListItemBlockContent/NumberedListItemBlockContent/NumberedListItemBlockContent";
 import { ParagraphBlockContent } from "../nodes/BlockContent/ParagraphBlockContent/ParagraphBlockContent";
@@ -27,7 +28,7 @@ export const defaultBlockSchema = {
   heading: {
     propSchema: {
       ...defaultProps,
-      level: { default: "1", values: ["1", "2", "3"] as const },
+      level: { default: "1", values: ["1", "2", "3", "4"] as const },
     },
     node: HeadingBlockContent,
   },
@@ -38,6 +39,14 @@ export const defaultBlockSchema = {
   numberedListItem: {
     propSchema: defaultProps,
     node: NumberedListItemBlockContent,
+  },
+  image: {
+    propSchema: {
+      ...defaultProps,
+      src: { default: "" },
+      title: { default: "" },
+    },
+    node: ImageBlockContent,
   },
 } as const;
 

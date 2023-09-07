@@ -9,9 +9,11 @@ import {
   RiH1,
   RiH2,
   RiH3,
+  RiH4,
   RiListOrdered,
   RiListUnordered,
   RiText,
+  RiImageFill,
 } from "react-icons/ri";
 import { formatKeyboardShortcut } from "../utils";
 import { ReactSlashMenuItem } from "./ReactSlashMenuItem";
@@ -41,6 +43,12 @@ const extraFields: Record<
     hint: "Used for subsections and group headings",
     shortcut: formatKeyboardShortcut("Mod-Alt-3"),
   },
+  "Heading 4": {
+    group: "Headings",
+    icon: <RiH4 size={18} />,
+    hint: "Used for subsections and group headings 3",
+    shortcut: formatKeyboardShortcut("Mod-Alt-4"),
+  },
   "Numbered List": {
     group: "Basic blocks",
     icon: <RiListOrdered size={18} />,
@@ -59,6 +67,12 @@ const extraFields: Record<
     hint: "Used for the body of your document",
     shortcut: formatKeyboardShortcut("Mod-Alt-0"),
   },
+  Image: {
+    group: "Medias",
+    icon: <RiImageFill size={18} />,
+    hint: "Image",
+    shortcut: formatKeyboardShortcut("Mod-Alt-i"),
+  },
 };
 
 export function getDefaultReactSlashMenuItems<BSchema extends BlockSchema>(
@@ -70,6 +84,8 @@ export function getDefaultReactSlashMenuItems<BSchema extends BlockSchema>(
 ): ReactSlashMenuItem<BSchema>[] {
   const slashMenuItems: BaseSlashMenuItem<BSchema>[] =
     getDefaultSlashMenuItems(schema);
+
+  console.log("slashMenuItems", slashMenuItems);
 
   return slashMenuItems.map((item) => ({
     ...item,

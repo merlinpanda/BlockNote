@@ -8,7 +8,7 @@ export const AddBlockButton = <BSchema extends BlockSchema>(
 ) => (
   <SideMenuButton>
     <AiOutlinePlus
-      size={24}
+      size="1rem"
       onClick={props.addBlock}
       data-test={"dragHandleAdd"}
     />

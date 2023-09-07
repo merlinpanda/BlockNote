@@ -52,6 +52,8 @@ import { UniqueID } from "./extensions/UniqueID/UniqueID";
 import { mergeCSSClasses } from "./shared/utils";
 
 export type BlockNoteEditorOptions<BSchema extends BlockSchema> = {
+  model?: "editable" | "commentable" | "readonly";
+
   // TODO: Figure out if enableBlockNoteExtensions/disableHistoryExtension are needed and document them.
   enableBlockNoteExtensions: boolean;
   /**
@@ -86,10 +88,7 @@ export type BlockNoteEditorOptions<BSchema extends BlockSchema> = {
    * A callback function that runs whenever the text cursor position changes.
    */
   onTextCursorPositionChange: (editor: BlockNoteEditor<BSchema>) => void;
-  /**
-   * Locks the editor from being editable by the user if set to `false`.
-   */
-  editable: boolean;
+
   /**
    * The content that should be in the editor when it's created, represented as an array of partial block objects.
    */
@@ -256,7 +255,7 @@ export class BlockNoteEditor<BSchema extends BlockSchema = DefaultBlockSchema> {
 
         newOptions.onTextCursorPositionChange?.(this);
       },
-      editable: options.editable === undefined ? true : options.editable,
+      editable: options.model === undefined || options.model === "editable",
       extensions:
         newOptions.enableBlockNoteExtensions === false
           ? newOptions._tiptapOptions?.extensions
@@ -281,6 +280,10 @@ export class BlockNoteEditor<BSchema extends BlockSchema = DefaultBlockSchema> {
     this._tiptapEditor = new Editor(tiptapOptions) as Editor & {
       contentComponent: any;
     };
+  }
+
+  public get model() {
+    return this.options.model || "readonly";
   }
 
   public get prosemirrorView() {

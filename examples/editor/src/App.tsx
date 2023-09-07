@@ -7,6 +7,7 @@ type WindowWithProseMirror = Window & typeof globalThis & { ProseMirror: any };
 
 function App() {
   const editor = useBlockNote({
+    model: "editable",
     onEditorContentChange: (editor) => {
       console.log(editor.topLevelBlocks);
     },
@@ -21,7 +22,7 @@ function App() {
   // Give tests a way to get prosemirror instance
   (window as WindowWithProseMirror).ProseMirror = editor?._tiptapEditor;
 
-  return <BlockNoteView editor={editor} />;
+  return <BlockNoteView editor={editor} theme="light" />;
 }
 
 export default App;

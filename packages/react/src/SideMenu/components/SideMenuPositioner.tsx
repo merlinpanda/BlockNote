@@ -84,13 +84,13 @@ export const SideMenuPositioner = <
       visible={show}
       animation={"fade"}
       offset={offset}
-      placement={"left"}
+      placement={props.editor.model === "commentable" ? "right" : "left"}
       popperOptions={popperOptions}
     />
   );
 };
 
-const offset: [number, number] = [0, 0];
+const offset: [number, number] = [0, 10];
 const popperOptions = {
   modifiers: [
     {

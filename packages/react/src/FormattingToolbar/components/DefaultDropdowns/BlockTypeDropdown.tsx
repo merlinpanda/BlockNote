@@ -8,6 +8,8 @@ import {
   RiListOrdered,
   RiListUnordered,
   RiText,
+  RiImageFill,
+  RiH4,
 } from "react-icons/ri";
 
 import { ToolbarDropdown } from "../../../SharedComponents/Toolbar/components/ToolbarDropdown";
@@ -23,6 +25,11 @@ export type BlockTypeDropdownItem = {
 };
 
 export const defaultBlockTypeDropdownItems: BlockTypeDropdownItem[] = [
+  {
+    name: "Image",
+    type: "image",
+    icon: RiImageFill,
+  },
   {
     name: "Paragraph",
     type: "paragraph",
@@ -45,6 +52,12 @@ export const defaultBlockTypeDropdownItems: BlockTypeDropdownItem[] = [
     type: "heading",
     props: { level: "3" },
     icon: RiH3,
+  },
+  {
+    name: "Heading 4",
+    type: "heading",
+    props: { level: "4" },
+    icon: RiH4,
   },
   {
     name: "Bullet List",

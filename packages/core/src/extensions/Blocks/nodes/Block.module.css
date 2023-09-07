@@ -19,6 +19,10 @@ BASIC STYLES
   flex-grow: 1;
 }
 
+.image {
+  width: 100%;
+}
+
 .blockContent {
   padding: 3px 0;
   flex-grow: 1;
@@ -60,14 +64,14 @@ NESTED BLOCKS
   .blockGroup
   .blockGroup
   > .blockOuter:not([data-prev-depth-changed])::before {
-  border-left: 1px solid #AFAFAF;
+  border-left: 1px solid #afafaf;
 }
 
 [data-theme="dark"]
   .blockGroup
   .blockGroup
   > .blockOuter:not([data-prev-depth-changed])::before {
-  border-left: 1px solid #7F7F7F;
+  border-left: 1px solid #7f7f7f;
 }
 
 .blockGroup .blockGroup > .blockOuter[data-prev-depth-change="-2"]::before {
@@ -250,12 +254,12 @@ NESTED BLOCKS
 
 [data-theme="light"] .isEmpty .inlineContent:before,
 .isFilter .inlineContent:before {
-  color: #CFCFCF;
+  color: #cfcfcf;
 }
 
 [data-theme="dark"] .isEmpty .inlineContent:before,
 .isFilter .inlineContent:before {
-  color: #7F7F7F;
+  color: #7f7f7f;
 }
 
 /* TODO: would be nicer if defined from code */
@@ -274,7 +278,7 @@ NESTED BLOCKS
 
 .blockContent[data-content-type="bulletListItem"].isEmpty .inlineContent:before,
 .blockContent[data-content-type="numberedListItem"].isEmpty
-.inlineContent:before {
+  .inlineContent:before {
   content: "List";
 }
 

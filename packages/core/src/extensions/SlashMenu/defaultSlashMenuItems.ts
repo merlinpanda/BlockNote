@@ -70,6 +70,19 @@ export const getDefaultSlashMenuItems = <BSchema extends BlockSchema>(
           } as PartialBlock<BSchema>),
       });
     }
+
+    // Command for creating a level 4 heading
+    if (schema.heading.propSchema.level.values?.includes("4")) {
+      slashMenuItems.push({
+        name: "Heading 4",
+        aliases: ["h4", "heading4", "subheading"],
+        execute: (editor) =>
+          insertOrUpdateBlock(editor, {
+            type: "heading",
+            props: { level: "4" },
+          } as PartialBlock<BSchema>),
+      });
+    }
   }
 
   if ("bulletListItem" in schema) {
@@ -101,6 +114,20 @@ export const getDefaultSlashMenuItems = <BSchema extends BlockSchema>(
       execute: (editor) =>
         insertOrUpdateBlock(editor, {
           type: "paragraph",
+        } as PartialBlock<BSchema>),
+    });
+  }
+
+  if ("image" in schema) {
+    slashMenuItems.push({
+      name: "Image",
+      aliases: ["img"],
+      execute: (editor) =>
+        insertOrUpdateBlock(editor, {
+          type: "image",
+          props: {
+            src: "https://via.placeholder.com/1000",
+          },
         } as PartialBlock<BSchema>),
     });
   }

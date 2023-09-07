@@ -85,8 +85,6 @@ export function getDefaultReactSlashMenuItems<BSchema extends BlockSchema>(
   const slashMenuItems: BaseSlashMenuItem<BSchema>[] =
     getDefaultSlashMenuItems(schema);
 
-  console.log("slashMenuItems", slashMenuItems);
-
   return slashMenuItems.map((item) => ({
     ...item,
     ...extraFields[item.name],

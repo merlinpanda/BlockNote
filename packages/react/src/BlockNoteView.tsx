@@ -78,7 +78,7 @@ export function BlockNoteView<BSchema extends BlockSchema>(
 
     return blockNoteToMantineTheme(theme);
   }, [preferredTheme, theme]);
-  console.log(rest);
+
   return (
     <MantineProvider theme={mantineTheme}>
       <BaseBlockNoteView {...rest} />

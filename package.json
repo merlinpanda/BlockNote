@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "examples/*",
+    "tiptap/*"
   ],
   "devDependencies": {
     "@playwright/experimental-ct-react": "^1.33.0",

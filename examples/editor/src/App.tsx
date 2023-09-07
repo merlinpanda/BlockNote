@@ -7,7 +7,7 @@ type WindowWithProseMirror = Window & typeof globalThis & { ProseMirror: any };
 
 function App() {
   const editor = useBlockNote({
-    model: "editable",
+    model: "commentable",
     onEditorContentChange: (editor) => {
       console.log(editor.topLevelBlocks);
     },
